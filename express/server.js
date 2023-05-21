@@ -11,7 +11,7 @@ let views = path.join(__dirname, '../');
 
 // Home route.
 router.get('/', (req, res) => {
-  res.sendFile('index.html', { root: views });
+  res.json([]);
 });
 
 // Other routes.
