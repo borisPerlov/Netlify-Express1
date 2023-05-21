@@ -25,7 +25,7 @@ router.get('/page3', function(req, res){
   res.sendFile('page3.html', { root: views });
 });
 router.get('/getMonth', function(req, res){
-   let aMonthList = [
+  let aMonthList = [
     {
       "month": "01", "month_desc": "ינואר",
     },
@@ -66,9 +66,9 @@ router.get('/getMonth', function(req, res){
 
   const start = new Date();
   const current = new Date();
-  const end = new Date(current.getFullYear(), current.getMonth() + Number(req.query.duration));
+  const end = new Date(current.getFullYear(), current.getMonth() + Number(query.duration));
 
-  const monthYearArray = [];
+  let monthYearArray = [];
 
   let currentDate = start;
   while (currentDate <= end) {
@@ -79,6 +79,11 @@ router.get('/getMonth', function(req, res){
     monthYearArray.push({ "month_code": month_code, "month_desc": oMonth.month_desc, "year": year, "monthDays": monthDays });
 
     currentDate.setMonth(currentDate.getMonth() + 1);
+  }
+
+  if (query.sort && query.sort === "month_code") {
+    monthYearArray = monthYearArray.sort((a, b) => (a.month_code > b.month_code) ? 1 : ((b.month_code > a.month_code) ? -1 : 0))
+
   }
 
    res.json(monthYearArray);
