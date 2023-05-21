@@ -81,7 +81,7 @@ router.get('/getMonth', function(req, res){
     currentDate.setMonth(currentDate.getMonth() + 1);
   }
 
-  if (query.sort && query.sort === "month_code") {
+  if (req.query.sort && req.query.sort === "month_code") {
     monthYearArray = monthYearArray.sort((a, b) => (a.month_code > b.month_code) ? 1 : ((b.month_code > a.month_code) ? -1 : 0))
 
   }
