@@ -66,7 +66,7 @@ router.get('/getMonth', function(req, res){
 
   const start = new Date();
   const current = new Date();
-  const end = new Date(current.getFullYear(), current.getMonth() + Number(query.duration));
+  const end = new Date(current.getFullYear(), current.getMonth() + Number(req.query.duration));
 
   let monthYearArray = [];
 
