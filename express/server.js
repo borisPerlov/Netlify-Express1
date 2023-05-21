@@ -24,7 +24,7 @@ router.get('/page2', function(req, res){
 router.get('/page3', function(req, res){
   res.sendFile('page3.html', { root: views });
 });
-router.get('/page4', function(req, res){
+router.get('/getMonth', function(req, res){
    let aMonthList = [
     {
       "month": "01", "month_desc": "ינואר",
